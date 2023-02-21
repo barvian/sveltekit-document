@@ -24,7 +24,7 @@ The full list of features it offers is:
 1. Grab the package from NPM:
 
    ```sh
-   npm install @sveltekit-addons/document --save-dev
+   npm install @sveltekit-addons/document --save
    ```
 
 1. Include the preprocessor in your `svelte.config.js` file:
