@@ -74,6 +74,7 @@ function update(el, node, target, filter) {
 	})
 	// Remove attributes that existed before the update but not after
 	Object.keys(prevAttributes)
+		.filter((attr) => filter ? filter.includes(attr) : true)
 		.filter((attr) => !(attr in merged))
 		.forEach((attr) => target.removeAttribute(attr))
 }
