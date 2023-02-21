@@ -10,14 +10,14 @@ A tiny utility for SvelteKit that lets you change the `<html>`, `<head>`, and `<
 <svelte:body on:click={onBodyClick} />
 
 <!-- but now you can do this: -->
-<ska:html lang="en" on:keyup={onHtmlKeyup} />
+<html lang="en" on:keyup={onHtmlKeyup} />
 <svelte:body class:dark={darkModeEnabled} />
 ```
 
 The full list of features it offers is:
 
 - Expands `<svelte:body>` to work with attributes, not just event listeners (accessible in SSR via `%ska.body.attributes%` in `app.html`)
-- Adds `<ska:html>`, which forwards attributes and event listeners to the `<html>` element (accessible in SSR via `%ska.html.attributes%` in `app.html`)
+- Adds `<html>`, which forwards attributes and event listeners to the `<html>` element (accessible in SSR via `%ska.html.attributes%` in `app.html`)
 
 ## Installation
 

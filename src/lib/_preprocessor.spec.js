@@ -13,12 +13,22 @@ it('injects import statements', async () => {
 	expect(processed.code).toBe(`<script>${IMPORT_ACTION}\nconsole.log()</script>Template`)
 })
 
-it('expands ska:html tags', async () => {
-	const code = `<div><ska:html class="test" on:click={() => {}} /></div>`
+it('expands html tags', async () => {
+	const code = `<div><html class="test" on:click={() => {}} /></div>`
 	const processed = await preprocess(code, preprocessor())
 	expect(processed.code).toBe(
 		`<script>${IMPORT_ACTION}</script><div><div hidden style="display:none !important"><div data-ska-element="html" use:__skaElement class="test" on:click={() => {}}></div></div></div>`
 	)
+})
+
+it('errors for html tags with children', async () => {
+	expect.assertions(1)
+	const code = `<html>child</html>`
+	try {
+		await preprocess(code, preprocessor())
+	} catch (/** @type {any} */ e) {
+		expect(e.message).toContain('child elements')
+	}
 })
 
 it('expands svelte:body tags', async () => {

@@ -45,9 +45,9 @@ function expand(node, s, content) {
 		/** @type {import('svelte/types/compiler/interfaces').Element['attributes']} */ (
 			node.attributes
 		)
-	if (node.name === 'ska:html') {
+	if (node.name === 'html') {
 		if (node.children && node.children.length > 0) {
-			throw new Error(`<ska:html> cannot contain any child elements`)
+			throw new Error(`<html> cannot contain any child elements`)
 		}
 		s.update(
 			node.start,

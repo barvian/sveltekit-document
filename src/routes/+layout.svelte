@@ -3,7 +3,7 @@
     let bodyToggle = false
 </script>
 
-<div><ska:html lang="en" class:toggled={htmlToggle} style:font-size="14px" style:--toggled={htmlToggle ? '1' : '0'} on:keyup={(event) => { if (event.key === 'h') htmlToggle = !htmlToggle }} /></div>
+<div><html lang="en" class:toggled={htmlToggle} style:font-size="14px" style:--toggled={htmlToggle ? '1' : '0'} on:keyup={(event) => { if (event.key === 'h') htmlToggle = !htmlToggle }} /></div>
 <svelte:body data-sveltekit-preload-data="hover" class:toggled={bodyToggle} style:color="green" style:--toggled={bodyToggle ? '1' : '0'} on:keyup={(event) => { if (event.key === 'b') bodyToggle = !bodyToggle }} />
 <slot />
 
