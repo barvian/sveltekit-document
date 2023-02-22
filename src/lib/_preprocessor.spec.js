@@ -17,7 +17,7 @@ it('expands html tags', async () => {
 	const code = `<div><html class="test" on:click={() => {}} /></div>`
 	const processed = await preprocess(code, preprocessor())
 	expect(processed.code).toBe(
-		`<script>${IMPORT_ACTION}</script><div><div hidden style="display:none !important"><div data-ska-element="html" use:__skaElement class="test" on:click={() => {}}></div></div></div>`
+		`<script>${IMPORT_ACTION}</script><div><div hidden style="display:none !important"><div data-ska-document-element="html" use:__skaDocumentElement class="test" on:click={() => {}}></div></div></div>`
 	)
 })
 
@@ -35,6 +35,6 @@ it('expands svelte:body tags', async () => {
 	const code = `<svelte:body class="test" on:click={() => {}} />Template`
 	const processed = await preprocess(code, preprocessor())
 	expect(processed.code).toBe(
-		`<script>${IMPORT_ACTION}</script><svelte:body on:click={() => {}} /><div hidden style="display:none !important"><div data-ska-element="body" use:__skaElement class="test"></div></div>Template`
+		`<script>${IMPORT_ACTION}</script><svelte:body on:click={() => {}} /><div hidden style="display:none !important"><div data-ska-document-element="body" use:__skaDocumentElement class="test"></div></div>Template`
 	)
 })

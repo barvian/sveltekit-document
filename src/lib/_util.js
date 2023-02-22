@@ -5,7 +5,7 @@
 export const mergeAttributes = (list, filter) =>
 	list.reduce((all, attrs) => {
 		Object.entries(attrs).forEach(([attr, val]) => {
-			if (attr === 'data-ska-element') return
+			if (attr === 'data-ska-document-element') return
 			if (filter && !filter.includes(attr)) return
 			if (attr === 'class' && all[attr]) {
 				all[attr] += ' ' + val

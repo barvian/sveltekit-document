@@ -6,9 +6,9 @@ import { mergeAttributes } from './_util.js'
  *
  * @param {HTMLElement} node
  */
-export const element = (node) => {
-	const el = node.dataset.skaElement
-	if (!el) throw new Error(`[data-ska-element] must be set if using element action`)
+export default (node) => {
+	const el = node.dataset.skaDocumentElement
+	if (!el) throw new Error(`[data-ska-document-element] must be set if using element action`)
 	/** @type {Record<string, HTMLElement>} */
 	const targets = {
 		html: document.documentElement,
@@ -17,7 +17,7 @@ export const element = (node) => {
 	const target = targets[el]
 	if (!target)
 		throw new Error(
-			`[data-ska-element] must be one of ${Object.keys(targets)} is using element action`
+			`[data-ska-document-element] must be one of ${Object.keys(targets)} is using element action`
 		)
 
 	// Forward events. Pretty lucky that Svelte runs actions
@@ -61,8 +61,8 @@ export const element = (node) => {
 function update(el, node, target, filter) {
 	const nodes = document.querySelectorAll(
 		filter
-			? filter.map((attr) => `[data-ska-element="${el}"][${attr}]`).join(', ')
-			: `[data-ska-element="${el}"]`
+			? filter.map((attr) => `[data-ska-document-element="${el}"][${attr}]`).join(', ')
+			: `[data-ska-document-element="${el}"]`
 	)
 	const prevAttributes = getAttributesPojo(node)
 	const merged = mergeAttributes(
@@ -74,7 +74,7 @@ function update(el, node, target, filter) {
 	})
 	// Remove attributes that existed before the update but not after
 	Object.keys(prevAttributes)
-		.filter((attr) => filter ? filter.includes(attr) : true)
+		.filter((attr) => (filter ? filter.includes(attr) : true))
 		.filter((attr) => !(attr in merged))
 		.forEach((attr) => target.removeAttribute(attr))
 }

@@ -2,8 +2,8 @@ import MagicString from 'magic-string'
 import * as url from 'node:url'
 import { parse as parseMarkup } from 'svelte-parse-markup'
 
-export const IMPORT_ACTION = `import { element as __skaElement } from '${url.fileURLToPath(
-	new URL('./_client.js', import.meta.url)
+export const IMPORT_ACTION = `import __skaDocumentElement from '${url.fileURLToPath(
+	new URL('./_action.js', import.meta.url)
 )}';`
 
 /**
@@ -14,8 +14,8 @@ export default () => ({
 		const s = new MagicString(content)
 		const root = parseMarkup(content)
 		if (root.instance) {
-			// @ts-ignore I'm not sure why .start is not listed
 			s.appendLeft(
+				// @ts-ignore I'm not sure why .start is not listed
 				root.instance.content.start,
 				// TODO: do something different if
 				// instance.content.sourceType is not module?
@@ -53,7 +53,7 @@ function expand(node, s, content) {
 			node.start,
 			node.end,
 			// Make sure you use close the inner div, because Cheerio doesn't like unclosed tags
-			`<div hidden style="display:none !important"><div data-ska-element="html" use:__skaElement ${getRawAttributes(
+			`<div hidden style="display:none !important"><div data-ska-document-element="html" use:__skaDocumentElement ${getRawAttributes(
 				attributes,
 				content
 			)}></div></div>`
@@ -65,7 +65,7 @@ function expand(node, s, content) {
 			`<svelte:body ${getRawAttributes(
 				attributes.filter((attr) => attr.type === 'EventHandler'),
 				content
-			)} /><div hidden style="display:none !important"><div data-ska-element="body" use:__skaElement ${getRawAttributes(
+			)} /><div hidden style="display:none !important"><div data-ska-document-element="body" use:__skaDocumentElement ${getRawAttributes(
 				attributes.filter((attr) => attr.type !== 'EventHandler'),
 				content
 			)}></div></div>`
