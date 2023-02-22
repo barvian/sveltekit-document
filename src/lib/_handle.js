@@ -7,7 +7,7 @@ import { mergeAttributes } from './_util.js'
 export default ({ event, resolve }) =>
 	resolve(event, {
 		async transformPageChunk({ html, done }) {
-			if (!done || !/\%sveltekit.html.attributes\%|\%sveltekit.body.attributes\%/.test(html))
+			if (!done || !/%sveltekit.html.attributes%|%sveltekit.body.attributes%/.test(html))
 				return html
 
 			const $ = load(html)
