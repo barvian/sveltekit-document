@@ -16,8 +16,8 @@ A tiny utility for SvelteKit that lets you change the `<html>`, `<head>`, and `<
 
 The full list of features it offers is:
 
-- Expands `<svelte:body>` to work with attributes, not just event listeners (accessible in SSR via `%sveltekit.body.attributes%` in `app.html`)
-- Treats `<html>` as a make-shift `<svelte:html>`, forwarding attributes and event listeners to the page's `<html>` element (accessible in SSR via `%sveltekit.html.attributes%` in `app.html`)
+- Expands `<svelte:body>` to work with attributes, not just event listeners (accessible in SSR via `%sveltekit.body.attributes%` in `app.html`), which addresses this [long-standing feature request](https://github.com/sveltejs/svelte/issues/3105)
+- Treats `<html>` as a make-shift `<svelte:html>`, forwarding event listeners and attributes to the page's `<html>` element (accessible in SSR via `%sveltekit.html.attributes%` in `app.html`)
 
 ## Installation
 
