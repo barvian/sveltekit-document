@@ -3,7 +3,7 @@ import * as url from 'node:url'
 import { parse as parseMarkup } from 'svelte-parse-markup'
 
 export const IMPORT_ACTION = `import __skaDocumentElement from '${url.fileURLToPath(
-	new URL('./_action.js', import.meta.url)
+	new URL('./action.js', import.meta.url)
 )}';`
 
 /**

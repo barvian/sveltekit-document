@@ -42,12 +42,12 @@ The full list of features it offers is:
 
    - If you don't have any other handles:
      ```diff
-     + export { handle } from '@sveltekit-addons/document'
+     + export { handle } from '@sveltekit-addons/document/hooks'
      ```
    - If you have a `handle` export already:
 
      ```diff
-     + import { handle as documentHandle } from '@sveltekit-addons/document'
+     + import { handle as documentHandle } from '@sveltekit-addons/document/hooks'
      + import { sequence } from '@sveltejs/kit/hooks'
 
      - export const handle = ...

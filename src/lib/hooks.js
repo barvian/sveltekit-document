@@ -1,10 +1,10 @@
 import { load } from 'cheerio'
-import { mergeAttributes } from './_util.js'
+import { mergeAttributes } from './util.js'
 
 /**
  * @type {import('@sveltejs/kit').Handle}
  */
-export default ({ event, resolve }) =>
+export const handle = ({ event, resolve }) =>
 	resolve(event, {
 		async transformPageChunk({ html, done }) {
 			if (!done || !/%ska.html.attributes%|%ska.body.attributes%/.test(html)) return html

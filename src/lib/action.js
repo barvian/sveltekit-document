@@ -1,4 +1,4 @@
-import { mergeAttributes } from './_util.js'
+import { mergeAttributes } from './util.js'
 
 /**
  * The Svelte action that forwards attributes changes

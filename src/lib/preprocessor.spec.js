@@ -1,5 +1,5 @@
 import { it, expect } from 'vitest'
-import preprocessor, { IMPORT_ACTION } from './_preprocessor.js'
+import preprocessor, { IMPORT_ACTION } from './preprocessor.js'
 import { preprocess } from 'svelte/compiler'
 
 it('injects script tags', async () => {

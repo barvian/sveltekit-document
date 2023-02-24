@@ -1,1 +1,1 @@
-export { handle } from '$lib'
+export { handle } from '$lib/hooks'
