@@ -48,7 +48,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"cheerio": "^1.0.0-rc.12",
+		"html5parser": "^2.0.2",
 		"magic-string": "^0.29.0",
 		"svelte-parse-markup": "^0.1.1"
 	}
