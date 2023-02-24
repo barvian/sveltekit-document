@@ -14,7 +14,7 @@ it('injects import statements', async () => {
 })
 
 it('expands html tags', async () => {
-	const code = `<div><html class="test" on:click={() => {}} /></div>`
+	const code = `<div><ska:html class="test" on:click={() => {}} /></div>`
 	const processed = await preprocess(code, preprocessor())
 	expect(processed.code).toBe(
 		`<script>${IMPORT_ACTION}</script><div><div hidden style="display:none !important"><div data-ska-document-element="html" use:__skaDocumentElement class="test" on:click={() => {}}></div></div></div>`
@@ -23,7 +23,7 @@ it('expands html tags', async () => {
 
 it('errors for html tags with children', async () => {
 	expect.assertions(1)
-	const code = `<html>child</html>`
+	const code = `<ska:html>child</ska:html>`
 	try {
 		await preprocess(code, preprocessor())
 	} catch (/** @type {any} */ e) {

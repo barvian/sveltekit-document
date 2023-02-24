@@ -10,14 +10,14 @@ A tiny utility for SvelteKit that lets you change the `<html>`, `<head>`, and `<
 <svelte:body on:click={onBodyClick} />
 
 <!-- but now you can do this: -->
-<html lang="en" on:keyup={onHtmlKeyup} />
+<ska:html lang="en" on:keyup={onHtmlKeyup} />
 <svelte:body class:dark={darkModeEnabled} />
 ```
 
 The full list of features it offers is:
 
-- Expands `<svelte:body>` to work with attributes, not just event listeners (accessible in SSR via `%sveltekit.body.attributes%` in `app.html`), which addresses this [long-standing feature request](https://github.com/sveltejs/svelte/issues/3105)
-- Treats `<html>` as a make-shift `<svelte:html>`, forwarding event listeners and attributes to the page's `<html>` element (accessible in SSR via `%sveltekit.html.attributes%` in `app.html`)
+- Expands `<svelte:body>` to work with attributes, not just event listeners (accessible in SSR via `%ska.body.attributes%` in `app.html`), which addresses this [long-standing feature request](https://github.com/sveltejs/svelte/issues/3105)
+- Adds `<ska:html>` (ska = SvelteKit Addons), which forwards attributes and event listeners to the `<html>` element (accessible in SSR via `%ska.html.attributes%` in `app.html`)
 
 ## Installation
 
@@ -61,12 +61,12 @@ The full list of features it offers is:
      ```diff
      <!DOCTYPE html>
      - <html>
-     + <html %sveltekit.html.attributes%>
+     + <html %ska.html.attributes%>
      <head>
          ...
      </head>
      - <body>
-     + <body %sveltekit.body.attributes%>
+     + <body %ska.body.attributes%>
      ```
    - Or by using the provided `app.html` template (meaning you can delete yours):
 
@@ -83,3 +83,7 @@ The full list of features it offers is:
      +   }
      }
      ```
+
+## Gotchas
+
+- `<ska:html>`'s event listeners don't get automatic types. Event listeners on the `<html>` element are pretty rare, though, and most of the time `<svelte:window>` could/should be used instead.

@@ -4,12 +4,12 @@
 </script>
 
 <div>
-	<html
+	<ska:html
 		lang="en"
 		class:toggled={htmlToggle}
 		style:font-size="14px"
 		style:--toggled={htmlToggle ? '1' : '0'}
-		on:keyup={(event) => {
+		on:keyup={(/** @type {KeyboardEvent} */ event) => {
 			if (event.key === 'h') htmlToggle = !htmlToggle
 		}}
 	/>
