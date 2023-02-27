@@ -87,3 +87,8 @@ The full list of features it offers is:
 ## Gotchas
 
 - `<ska:html>`'s event listeners don't get automatic types. Event listeners on the `<html>` element are pretty rare, though, and most of the time `<svelte:window>` could/should be used instead.
+
+# Todo
+
+- [ ] Handle CSP
+- [ ] Allow adding elements portal-style to body
