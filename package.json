@@ -28,7 +28,7 @@
 		"dist"
 	],
 	"peerDependencies": {
-		"svelte": "^3.54.0"
+		"svelte": "^3.54.0 || >=4.x"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
