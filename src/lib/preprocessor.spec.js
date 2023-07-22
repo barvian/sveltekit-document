@@ -17,7 +17,7 @@ it('expands html tags', async () => {
 	const code = `<div><ska:html class="test" on:click={() => {}} /></div>`
 	const processed = await preprocess(code, preprocessor())
 	expect(processed.code).toBe(
-		`<script>${IMPORT_ACTION}</script><div><div hidden style="display:none !important"><div data-ska-document-element="html" use:__skaDocumentElement class="test" on:click={() => {}}></div></div></div>`
+		`<script>${IMPORT_ACTION}</script><div><div hidden style="display:none !important"><!-- svelte-ignore a11y-no-static-element-interactions --><div data-ska-document-element="html" use:__skaDocumentElement class="test" on:click={() => {}}></div></div></div>`
 	)
 })
 

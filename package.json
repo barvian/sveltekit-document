@@ -1,6 +1,6 @@
 {
 	"name": "@sveltekit-addons/document",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -31,20 +31,20 @@
 		"svelte": "^3.54.0 || >=4.x"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.5.0",
-		"@sveltejs/package": "^2.0.0",
+		"@playwright/test": "^1.36.1",
+		"@sveltejs/adapter-auto": "^2.1.0",
+		"@sveltejs/kit": "^1.22.3",
+		"@sveltejs/package": "^2.2.0",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-svelte3": "^4.0.0",
-		"prettier": "^2.8.0",
-		"prettier-plugin-svelte": "^2.8.1",
+		"eslint-plugin-svelte": "^2.32.4",
+		"prettier": "^3.0.0",
+		"prettier-plugin-svelte": "^3.0.0",
 		"publint": "^0.1.9",
-		"svelte": "^3.54.0",
-		"svelte-check": "^3.0.1",
-		"tslib": "^2.4.1",
-		"typescript": "^4.9.3",
+		"svelte": "^4.1.1",
+		"svelte-check": "^3.4.6",
+		"tslib": "^2.6.0",
+		"typescript": "^5.1.6",
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
@@ -54,6 +54,6 @@
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.12",
 		"magic-string": "^0.29.0",
-		"svelte-parse-markup": "^0.1.1"
+		"svelte-parse-markup": "^0.1.2"
 	}
 }

@@ -53,7 +53,7 @@ function expand(node, s, content) {
 			node.start,
 			node.end,
 			// Make sure you use close the inner div, because Cheerio doesn't like unclosed tags
-			`<div hidden style="display:none !important"><div data-ska-document-element="html" use:__skaDocumentElement ${getRawAttributes(
+			`<div hidden style="display:none !important"><!-- svelte-ignore a11y-no-static-element-interactions --><div data-ska-document-element="html" use:__skaDocumentElement ${getRawAttributes(
 				attributes,
 				content
 			)}></div></div>`

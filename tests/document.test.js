@@ -13,7 +13,7 @@ test('html tag gets expected attributes', async ({ page, javaScriptEnabled }) =>
 	if (javaScriptEnabled) {
 		await page.keyboard.up('h')
 		expect(await page.getAttribute('html', 'class')).toContain('toggled')
-		expect(await page.getAttribute('html', 'style')).toContain('--toggled:1')
+		expect(await page.getAttribute('html', 'style')).toContain('--toggled: 1')
 		// Make sure attributes don't get erroneously removed
 		expect(await page.getAttribute('html', 'style')).toContain('font-size: 16px')
 	}
@@ -24,7 +24,7 @@ test('html tag gets expected attributes', async ({ page, javaScriptEnabled }) =>
 	expect(await page.getAttribute('html', 'style')).not.toContain('font-size: 16px')
 	if (javaScriptEnabled) {
 		expect(await page.getAttribute('html', 'class')).toContain('toggled')
-		expect(await page.getAttribute('html', 'style')).toContain('--toggled:1')
+		expect(await page.getAttribute('html', 'style')).toContain('--toggled: 1')
 	}
 })
 
@@ -41,7 +41,7 @@ test('body tag gets expected attributes', async ({ page, javaScriptEnabled }) =>
 	if (javaScriptEnabled) {
 		await page.keyboard.up('b')
 		expect(await page.getAttribute('body', 'class')).toContain('toggled')
-		expect(await page.getAttribute('body', 'style')).toContain('--toggled:1')
+		expect(await page.getAttribute('body', 'style')).toContain('--toggled: 1')
 		// Make sure attributes don't get erroneously removed
 		expect(await page.getAttribute('body', 'style')).toContain('color: red')
 	}
@@ -51,7 +51,7 @@ test('body tag gets expected attributes', async ({ page, javaScriptEnabled }) =>
 	expect(await page.getAttribute('html', 'style')).not.toContain('color: red')
 	if (javaScriptEnabled) {
 		expect(await page.getAttribute('body', 'class')).toContain('toggled')
-		expect(await page.getAttribute('body', 'style')).toContain('--toggled:1')
+		expect(await page.getAttribute('body', 'style')).toContain('--toggled: 1')
 	} else {
 		expect(await page.getAttribute('body', 'class')).toBeNull()
 	}
